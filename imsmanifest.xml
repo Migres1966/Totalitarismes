@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="LA_OLA_T8_V2" version="2.0" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2">
+  <metadata><schema>ADL SCORM</schema><schemaversion>1.2</schemaversion></metadata>
+  <organizations default="ORG_LA_OLA"><organization identifier="ORG_LA_OLA"><title>La ola i l’auge dels totalitarismes</title><item identifier="ITEM_LA_OLA" identifierref="RES_LA_OLA"><title>Laboratori d’història · 1r de Batxillerat</title><adlcp:masteryscore>70</adlcp:masteryscore></item></organization></organizations>
+  <resources><resource identifier="RES_LA_OLA" type="webcontent" adlcp:scormtype="sco" href="index.html"><file href="index.html"/><file href="styles.css"/><file href="content.js"/><file href="app.js"/><file href="scorm.js"/><file href="assets/la-ola-tim.jpg"/><file href="assets/llibre-mauthausen-treball.png"/><file href="assets/llibre-mapa-democracies.png"/><file href="assets/llibre-joventuts-cartell.png"/><file href="assets/llibre-mapa-gulag.png"/><file href="assets/llibre-wenger-aula.png"/><file href="assets/llibre-stalin-propaganda.png"/><file href="assets/llibre-hitler-cartell.png"/><file href="assets/llibre-mussolini-multitud.png"/></resource></resources>
+</manifest>
