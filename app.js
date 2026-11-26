@@ -96,9 +96,23 @@ ${glossary()}<div class="section-head"><h2>El teu itinerari</h2><span class="mut
 <section style="margin-top:30px"><h2>Un mapa del temps</h2><p class="muted">Dates d’orientació. No són etapes d’un únic procés ni una cadena inevitable.</p><div class="timeline">${[[1918,'Final de la Gran Guerra'],[1922,'Mussolini, cap de govern'],[1929,'Crisi econòmica mundial'],[1933,'Hitler, canceller'],[1935,'Lleis de Nuremberg'],['1937–38','Màxim del Gran Terror']].map(([d,t])=>`<div class="time-item"><strong>${d}</strong>${t}</div>`).join('')}</div></section>
 <details><summary>Acords de treball i alternativa sense escenes</summary><p>Respectem la discrepància; no demanem experiències personals ni reproduïm el moviment de la pel·lícula. El film conté intimidació, violència i suïcidi. Aquí no es mostren escenes del desenllaç. Si prefereixes l’alternativa, substitueix la referència al film per un document històric de la font de cada laboratori: identifica autoria, data, acció i efecte. Es mantenen les mateixes exigències d’argumentació.</p></details>`;}
 function filmImage(m){return m.id==='feixisme'?`<figure class="film-image"><img src="assets/la-ola-tim.jpg" width="300" height="157" alt="Tim davant d’un mur amb el símbol vermell de La Ola." loading="lazy"><figcaption><strong>Observa abans d’interpretar.</strong> Què veus en el personatge i en el fons? Què et caldria saber per interpretar la imatge? El símbol, tot sol, no demostra una ideologia.<br><span>Die Welle (2008). Frederick Lau (Tim). Font: Filmportal / DIF; © Constantin Film. Imatge emprada com a objecte d’anàlisi.</span></figcaption></figure>`:'';}
+const studyMaps = {
+  crisi: { title: 'Mapa conceptual de la reculada de les democràcies', file: 'mapa-conceptual-reculada-democracies.pdf' },
+  italia: { title: 'Mapa conceptual de la Itàlia feixista', file: 'mapa-conceptual-italia-feixista.pdf' },
+  alemanya: { title: 'Mapa mental de la nazificació d’Alemanya', file: 'mapa-mental-nazificacio-alemanya.pdf' },
+};
+
+function studyMap(moduleId) {
+  const map = studyMaps[moduleId];
+  if (!map) return '';
+  const url = `assets/${map.file}`;
+  return `<section class="card"><h2>${map.title}</h2><div class="button-row"><a href="${url}" target="_blank" rel="noopener">Obri el mapa (PDF)</a><a href="${url}" download>Descarrega el mapa</a></div></section>`;
+}
+
 function modulePage(m){const i=M.indexOf(m),src=C.sources[m.source],qstate=state.quizzes[m.id],last=qstate?.last;
  return `<header class="chapter-top"><p class="eyebrow">LABORATORI ${String(i+1).padStart(2,'0')} / ${m.tag}</p><h1>${m.title}</h1><p class="lead">${m.subtitle}</p><div class="meta"><span class="pill">${m.minutes} min orientatius</span><span class="pill">Dossier · ${m.dossier}</span></div></header><p class="big-question">${m.question}</p><p class="manual-link"><a href="${m.manualUrl}" target="_blank" rel="noopener">Manual · ${m.manualNumber}. ${m.manualTitle} ↗</a></p>${(m.images||[]).map(bookImage).join('')}${m.id==='crisi'?glossary():''}
 <section><span class="label">01 / COMPRENDRE EL CONTEXT</span><div class="reading">${m.blocks.map(([h,p])=>`<article><div><h2>${h}</h2><p>${p}</p></div></article>`).join('')}</div></section>
+${studyMap(m.id)}
 <section class="film-bridge"><div class="film-icon" aria-hidden="true">▣</div><div><span class="label">02 / TORNEM A LA OLA</span><h2>Una escena, una pregunta.</h2><p>${m.film}</p>${filmImage(m)}<p class="film-limit"><strong>Límit de la comparació.</strong> ${m.limit}</p><a href="https://www.filmportal.de/film/die-welle_b184ff44f2f244a79e3dc20b9e65aeba" target="_blank" rel="noopener" style="color:#def18e;font-size:12px">Fitxa i galeria de la pel·lícula · Filmportal ↗</a></div></section>
 <section class="source-box"><span class="label">03 / CONTRASTAR UNA FONT</span><h3>${src.title}</h3><p><strong>${src.kind}.</strong> ${src.task}</p><a href="${src.url}" target="_blank" rel="noopener">Obre la font contextualitzada ↗</a><p class="note">Fonts externes en anglès, alemany o italià; pots fer servir la traducció del navegador. Si no tens connexió, el professorat pot facilitar una font equivalent. Anota la referència dins la teva resposta.</p></section>
 <section class="card"><span class="label">04 / COMPROVAR I APRENDRE</span><h2>Posa a prova els conceptes</h2><p class="muted">4 preguntes · un punt per pregunta · intents il·limitats. Es conserva la millor puntuació de cada laboratori. El retorn explica les respostes.</p>
